@@ -1,0 +1,198 @@
+<html>
+<head>
+
+<!-- <script src="http://code.jquery.com/jquery-latest.js"></script>  -->
+<!-- 百度CDN-->
+<script src="http://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+
+</head>
+
+
+<body>
+
+    <ul id="test">
+    <li>这是第一条</li>
+    <li>这是第二条</li>
+    <li>这是第三条</li>
+    </ul>
+    <button id="btn">CLIKE ME</button>
+</body>
+</html>
+
+<script>
+
+
+var numberArray = [3,6,2,4,1,5];
+var numberArray = [3,6,2,4,1,5];
+numberArray.reverse(); // 5,1,4,2,6,3
+console.log("numberArray.reverse",numberArray);
+
+numberArray.sort(function(a,b) { //6,5,4,3,2,1
+  return a-b; 
+});
+console.log("numberArray",numberArray);
+f();
+var foo = 1;
+function f() {
+  var foo;
+  console.log("foo",foo); //undefined
+  foo = 2;
+  console.log("foo2",foo); // 2;  
+}
+
+liOnclick();
+function liOnclick() {
+    var list = $("#test li");
+    console.log("list",list[0]);
+}
+$("li").click(function(){
+   console.log($(this).text());
+})
+
+var lis=document.getElementById('test').getElementsByTagName('li');
+for(var i=0;i<3;i++)
+{
+  lis[i].index=i;
+  lis[i].onclick=function(){
+    alert(this.index);
+  };
+}
+
+//对象
+function Person(){
+    this.name = "Mike";
+    this.sayGoodbye = function(){console.log("GoodBye!");};
+}
+
+Person.prototype.sayHello = function(){console.log("Hello!");};
+
+function Student(){
+    this.id= 1;
+}
+
+Student.prototype = new Person();
+
+Student.prototype.show = function(){
+    console.log("Name is:"+ this.name+" and Id is:"+this.id);
+}
+var st = new Student();
+st.show();
+st.sayHello();
+//Student.prototype.show();
+
+//统计字符串个数
+var str = 'asdfssaaasasasasaa';
+var json = {};
+
+for (var i = 0; i < str.length; i++) {
+        if(!json[str.charAt(i)]){
+                json[str.charAt(i)] = 1;
+        }else{
+                json[str.charAt(i)]++;
+        }
+};
+  //console.log("json[str.charAt(i)]",json);
+var iMax = 0;
+var iIndex = '';
+for(var i in json){
+        if(json[i]>iMax){
+                iMax = json[i];
+                iIndex = i;
+        }
+}
+//alert('出现次数最多的是:'+iIndex+'出现'+iMax+'次');
+
+
+var str = '22两是';
+
+//console.log(getStrlen(str));
+
+function getStrlen(str){
+        var json = {len:0};
+        var re = /[\u4e00-\u9fa5]/;
+        for (var i = 0; i < str.length; i++) {
+                if(re.test(str.charAt(i))){
+                        json['len']++;
+                }
+        };
+        return json['len']+str.length;
+}
+
+// callee
+var sum = function(n){
+  if (n <= 0)                        
+  return 1;
+  else
+    return arguments.callee(n - 1)+n;
+}
+console.log("10",sum(10));
+//this作用域
+var Obj=function(msg){
+              this.msg=msg;
+              console.log("this.msg",this.msg);
+              this.shout=function(){
+                              console.log("msg",this.msg); //undefined
+              }
+              this.waitAndShout=function(){
+                   setTimeout(this.shout, 200);
+             }
+    }
+    var aa=new Obj("abc");
+    aa.waitAndShout();
+
+   //  Array.prototype.delRepeat=function(){ 
+   //      //tempArr：重复项标志,tempArr1：保存重复数组项 
+   //      var tempArr=[],tempArr1=[],j=0; 
+   //      //遍历数组 
+   //      for(var i=this.length;i>0;i--){ 
+   //          //如果该项还没有重复项 
+   //          if(!tempArr[this[i-1]]){ 
+   //              tempArr[this[i-1]]=1;    //通过关联数组方式标志该项并置为1（代表出现一次） 
+   //          }else{ 
+   //             // if(tempArr[this[i-1]]++==1)
+   //             //   tempArr1[j++]=this[i-1];    //如果第一次重复则将该重复项保存，并将重复标志+1 
+   //                this.splice(i-1,1);    //从原数组删除该项(因为是倒序遍历，所以可以直接在此删除) 
+   //          } 
+   //      } 
+   //      return tempArr1;    //返回重复项列表 
+   //  } 
+   //  var a=new Array(5,410,52,",",24,5,",",true,false,24,24,25,5) 
+   //  //alert("原数组:"+a); 
+   //  console.log("重复项:"+a.delRepeat()); 
+   // console.log("剩余项:"+a); 
+
+
+
+Array.prototype.deletes = function () {
+    var tem = [];
+    for (var i = this.length; i > 0; i--) {
+        if (tem[this[i-1]] ) {
+           this.splice(i-1,1);
+        } else {
+            tem[this[i-1]] =1;
+        }
+    }
+}
+
+var ab=new Array(5,410,52,",",24,5,",",true,false,24,24,25,5); 
+ab.deletes();
+console.log("ab",ab);
+
+//apply
+var arr=[5,7,9,1]
+var arr2=[15,17,19,11]
+function getMax2(arr){
+    return Math.max.apply(null,arr);
+}
+console.log("getMax2",getMax2(arr));
+//Array.prototype.push.apply(arr,arr2)
+arr.concat(arr2);
+console.log("var arr=",arr);
+
+
+$("ul").delegate("li","click", function() {
+        $(this).hide();
+});
+
+
+</script> 
