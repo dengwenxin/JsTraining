@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>canvas test</title>
+	<script src="http://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+
+</head>
+<body>
+	<!-- <canvas id="canvasTest"></canvas> -->
+	<canvas id="line" width="500px" height="400px"></canvas>
+	<canvas id="mawei" width="500px" height="400px"></canvas>
+	<canvas id="taiChi" style="background-color:gray" width="500px" height="400px"></canvas>
+
+
+</body>
+
+<script type="text/javascript">
+	//var c = document.getElementById("canvasTest");
+	// var cxt = c.getContext("2d");
+	// 	cxt.fillStyle = "#FF0000";
+	// 	cxt.beginPath();
+	// 	cxt.arc(400,100,100,0,Math.PI);
+	// 	cxt.closePath();
+	// 	cxt.fill();
+	var c1 = $("#line")[0];
+	var lineCxt = c1.getContext("2d");
+		lineCxt.save();
+		lineCxt.translate(130,180);
+		lineCxt.beginPath();
+		lineCxt.moveTo(-25,-50);
+		lineCxt.lineTo(-10,-80);
+		lineCxt.lineTo(-20,-80);
+		lineCxt.lineTo(-5,-110);
+		lineCxt.lineTo(-15,-110);
+		//顶点
+		lineCxt.lineTo(0,-140);
+
+		lineCxt.lineTo(15,-110);
+		lineCxt.lineTo(5, -110);
+	    lineCxt.lineTo(20, -80);
+		lineCxt.lineTo(10, -80);
+		lineCxt.lineTo(25, -50);
+
+
+		lineCxt.closePath();
+		lineCxt.stroke();
+
+		lineCxt.strokeStyle="brown";
+		lineCxt.fillStyle = "green";
+		lineCxt.fill();
+
+		lineCxt.translate(130,150);
+		lineCxt.fillRect(-135,-200,10,50);
+
+	var c2 = document.getElementById("mawei");
+	var maweiCxt = c2.getContext("2d");
+		maweiCxt.translate(200,100);
+		maweiCxt.fillStyle = "rgba(0,0,255,0.25)";
+
+		for(var i = 0;i<45;i++) {
+			maweiCxt.beginPath();
+			maweiCxt.scale(0.93,0.93);
+			maweiCxt.rotate(Math.PI/9);
+			maweiCxt.translate(35,12);
+			maweiCxt.fillRect(0,0,100,50);
+		}
+
+	var cvs = document.getElementById("taiChi");
+	var ctx = cvs.getContext("2d");
+		// Create circle, radius = 150
+		// start point(x, y), radius, start angle, end angle, boolean antiClockWise
+		//白半圆
+		ctx.fillStyle="#FFF";
+		ctx.beginPath(); 
+		ctx.arc(200, 200, 150, 1.5*Math.PI, Math.PI/2, false);
+		ctx.closePath();
+		ctx.fill();
+		//黑色半圆
+		ctx.fillStyle="#000";
+		ctx.beginPath(); 
+		ctx.arc(200, 200, 150, Math.PI/2, Math.PI*1.5, false);
+		ctx.closePath();
+		ctx.fill();
+
+		// draw sub
+		ctx.fillStyle="#000";
+		ctx.beginPath();
+		ctx.arc(200,275,75,0, Math.PI*2);
+		ctx.closePath();
+		ctx.fill();
+
+		ctx.fillStyle="#FFF";
+		ctx.beginPath();
+		ctx.arc(200,125,75,0, Math.PI*2);
+		ctx.closePath();
+		ctx.fill();
+
+		// draw small circle
+		ctx.fillStyle="#FFF";
+		ctx.beginPath();
+		ctx.arc(200,275,10,0, Math.PI*2);
+		ctx.closePath();
+		ctx.fill();
+
+		ctx.fillStyle="#000";
+		ctx.beginPath();
+		ctx.arc(200,125,10,0, Math.PI*2);
+		ctx.closePath();
+		ctx.fill()
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</html>
