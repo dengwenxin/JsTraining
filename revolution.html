@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>resolution Test</title>
+	<style type="text/css">
+		body {
+			font-size: 25px;
+		}
+		@media screen and (min-width: 900px){
+			body{background: #eee}
+			#header{
+				background: #FFA500;
+			}
+			#main{
+				width: 900px;
+				margin: 40px auto;
+			}
+			#main:after{
+				content: "full screen";
+			}
+			#main >div{
+					padding: 20px;
+					border: 1px solid;
+					margin: 5px;
+			}
+			#left{
+				float: left;
+				width: 200px;
+				height: 100px;
+				background: #FFF;
+			}
+			#content {
+				float: left;
+				width: 430px;
+				height: 100px;
+				background: #FFF;
+			}
+			#right{
+				height: 100px;
+				float: right;
+				background: #FFF;
+			}
+		}
+
+		@media screen and (max-width: 900px) and (min-width: 600px){
+			body{background: green}
+			#header{
+				background: #FF0000;
+			}
+			#main{
+				width: 600px;
+				margin: 40px auto;
+			}
+			#main:after{
+				content: "middle screen";
+			}
+			#main >div{
+					padding: 20px;
+					border: 1px solid;
+					margin: 5px;
+			}
+			#left{
+				float: left;
+				width: 100px;
+				height: 100px;
+				background: #FFF;
+			}
+			#content {
+				float: left;
+				width: 230px;
+				height: 100px;
+				background: #FFF;
+			}
+			#right{
+				height: 100px;
+				float: right;
+				background: #FFF;
+			}
+		}
+
+		@media screen and (max-width: 600px){ 
+			body{background: #gray}
+			#header{
+				width: 300px;
+				background: #eee;
+			}
+			#main{
+				width: 300px;
+				margin: 40px auto;
+			}
+			#main:after{
+				content: "narrow screen";
+			}
+			#main >div{
+					padding: 10px;
+					border: 1px solid;
+					margin: 5px;
+			}
+			#left{
+				float: left;
+				width: 300px;
+				height: 30px;
+				background: #FFF;
+			}
+			#content {
+				float: left;
+				width: 300px;
+				height: 30px;
+				background: #FFF;
+			}
+			#right{
+				width: 300px;
+				height: 30px;
+				float: left;
+				background: #FFF;
+			}
+		}
+
+	</style>
+</head>
+<body>
+		<div id="main">
+			<div id="header">Header</div>
+			<div id= "left">leftSide</div>
+			<div id="content">Content</div>
+			<div id="right">rightSide</div>
+		</div>
+</body>
+</html>
